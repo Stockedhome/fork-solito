@@ -59,7 +59,6 @@
     "image/**/*",
     "navigation/**/*"
   ],
-  "packageManager": "yarn@1.22.19",
   "dependencies": {
     "typescript": "^5.0.4"
   }
