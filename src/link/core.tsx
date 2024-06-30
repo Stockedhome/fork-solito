@@ -5,13 +5,12 @@ import { Platform } from 'react-native'
 
 import { openURL } from './linking'
 import { NextLink } from './next-link'
-import { useLink } from './use-custom-link'
 import { LinkCoreProps } from './LinkCoreProps'
+import { useLink } from '../app/navigation/use-link';
 
 function LinkCore({
   children,
   href,
-  as,
   componentProps,
   Component,
   replace,
@@ -19,7 +18,7 @@ function LinkCore({
   target,
   rel,
   ...props
-}: LinkCoreProps & {
+}: Parameters<typeof useLink>[0] & Parameters<typeof NextLink>[0] &{
   Component: ComponentType<any>
   componentProps?: any
 }) {
@@ -29,7 +28,6 @@ function LinkCore({
         {...props}
         replace={replace}
         href={href}
-        as={as}
         passHref
         legacyBehavior
       >
@@ -45,7 +43,6 @@ function LinkCore({
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const linkTo = useLink({
     href,
-    as,
     replace,
     experimental,
   })
@@ -55,7 +52,7 @@ function LinkCore({
       {...componentProps}
       onPress={(e?: any) => {
         componentProps?.onPress?.(e)
-        const link = as || href
+        const link = href
         if (e?.defaultPrevented) return
         // Handles external URLs
         if (typeof link === 'string' && isAbsoluteUrl(link)) {
