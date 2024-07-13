@@ -11,7 +11,7 @@
     "noUnusedLocals": false,
     "jsx": "react-jsx"
   },
-  "include": ["./src"],
+  "include": ["./src", "types", "index.ts", "image/fast", "image/context.tsx", "image/create-solito-image.tsx", "image/default-loader.ts", "image/helpers.test.ts", "image/helpers.ts", "image/image.types.ts", "image/types.ts", "image/use-solito-image.ts", "image/expo", "image/author"],
   "exclude": ["**/__mocks__/*", "**/__tests__/*", "**.*.test.ts"],
   "ts-node": {
     // these options are overrides used only by ts-node

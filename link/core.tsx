@@ -5,7 +5,6 @@ import { Platform } from 'react-native'
 
 import { openURL } from './linking'
 import { NextLink } from './next-link'
-import { LinkCoreProps } from './LinkCoreProps'
 import { useLink } from '../app/navigation/use-link';
 
 function LinkCore({
