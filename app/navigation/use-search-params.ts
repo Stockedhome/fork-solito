@@ -24,13 +24,13 @@ export function useSearchParams<Type extends Record<string, string>>() {
     )
   }
 
-  const params = route?.params as Type | undefined
+  const params: Type | undefined = route?.params as Type | undefined
 
-  if (__DEV__) {
+  if (params && __DEV__) {
     const nonStringParamValues = Object.entries(params || {})
       .map(([key, value]) => {
         if (typeof value !== 'string') {
-          return `${key}: ${JSON.stringify(value)}`
+          return `${key as string}: ${JSON.stringify(value)}`
         }
         return undefined
       })
@@ -42,7 +42,7 @@ export function useSearchParams<Type extends Record<string, string>>() {
       }" screen (path ${
         route?.path ?? 'unknown'
       }). You used non-string parameters for the following params:
-      
+
 ${nonStringParamValues.join('\n')}
 
 Due to constraints from Next.js, this is not valid in Solito.  Please refactor your code to use strings for screen parameters.

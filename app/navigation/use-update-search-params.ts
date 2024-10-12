@@ -14,11 +14,11 @@ export default function <
   const searchParams = useSearchParams()
 
   return useCallback(
-    (params, options) => {
+    (params: Partial<Type>, options) => {
       const next = new URLSearchParams(searchParams?.toString())
 
       let shouldReplace = false
-      Object.entries(params).forEach(([key, value]) => {
+      Object.entries(params as {[k: string]: string}).forEach(([key, value]) => {
         if (next.has(key)) {
           shouldReplace = true
         }
