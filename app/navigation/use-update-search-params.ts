@@ -6,8 +6,8 @@ import { UseUpdateSearchParamsReturns } from './use-update-search-params.types'
 import { usePathname } from './use-pathname'
 import { useSearchParams } from 'next/navigation'
 
-export default function <
-  Type extends Record<string, string> = Record<string, string>
+export default function useUpdateSearchParams<
+  Type extends Record<string, string | null> = Record<string, string | null>
 >(): UseUpdateSearchParamsReturns<Type> {
   const router = useRouter()
   const pathname = usePathname()
