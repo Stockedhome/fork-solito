@@ -1,6 +1,6 @@
 'use client'
 
-import type { ComponentType } from 'react'
+import React, { type ComponentType } from 'react'
 import { Platform } from 'react-native'
 
 import { openURL } from './linking'
@@ -27,8 +27,6 @@ function LinkCore({
         {...props}
         replace={replace}
         href={href}
-        passHref
-        legacyBehavior
       >
         <Component
           {...componentProps}
